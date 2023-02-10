@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle fx:id="RectanguloIzq" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="20.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="RectangleDrch" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="556.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Circle fx:id="Bola" fill="WHITE" layoutX="300.0" layoutY="201.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="PuntuacionIzq" layoutX="207.0" layoutY="28.0" style="-fx-font-size: 30px;" text="0" textFill="WHITE" />
+      <Label fx:id="PuntuacionDrch" layoutX="381.0" layoutY="28.0" style="-fx-font-size: 30px;" text="0" textFill="WHITE" />
+   </children>
+</AnchorPane>
