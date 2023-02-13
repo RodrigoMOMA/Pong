@@ -3,19 +3,11 @@ package com.example.pong;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
 public class HelloController{
@@ -33,6 +25,10 @@ public class HelloController{
     private boolean SeJugadorArriba = false;
     private boolean SeJugadorAbajo = false;
     private int movimiento = 10;
+
+    private static final int VelocidadCirculo = 5;
+    private int x = VelocidadCirculo;
+    private int y = VelocidadCirculo;
 
     public void initialize(){
         
@@ -77,7 +73,20 @@ public class HelloController{
                     if (SeJugadorAbajo){
                         rectangleDrch.setLayoutY(rectangleDrch.getLayoutY() + movimiento);
                     }
+                    bola.setLayoutX(bola.getLayoutX() + x);
+                    bola.setLayoutY(bola.getLayoutY() + y);
+                    Shape choqueRectangulo1 =Shape.intersect(rectanguloIzq,bola);
+                    Shape choqueRectangulo2=Shape.intersect(rectangleDrch,bola);
+                    //if (bola.getLayoutX() <= bola.getRadius() || bola.getLayoutX() >= escena.getWidth() - bola.getRadius()){
+                    //    x = -x;
+                    //}
+                    if (bola.getLayoutY() <= bola.getRadius() || bola.getLayoutY() >= escena.getHeight() - bola.getRadius()) {
+                        y = -y;
+                    }
 
+                    if (!choqueRectangulo1.getBoundsInLocal().isEmpty()||!choqueRectangulo2.getBoundsInLocal().isEmpty()){
+                        x*=-1;
+                    }
                 }));
                 tl.setCycleCount(Animation.INDEFINITE);
                 tl.play();
