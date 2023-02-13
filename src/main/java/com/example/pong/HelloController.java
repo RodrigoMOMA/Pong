@@ -30,6 +30,9 @@ public class HelloController{
     private int x = VelocidadCirculo;
     private int y = VelocidadCirculo;
 
+    private int puntosIzq;
+    private int puntosDrch;
+
     public void initialize(){
         
         anchor.sceneProperty().addListener((observableValue, oldscene, escena) -> {
@@ -87,6 +90,19 @@ public class HelloController{
                     if (!choqueRectangulo1.getBoundsInLocal().isEmpty()||!choqueRectangulo2.getBoundsInLocal().isEmpty()){
                         x*=-1;
                     }
+                    if (bola.getLayoutX() > escena.getWidth()){
+                        puntosDrch ++;
+                        puntuacionDrch.setText(String.valueOf(puntosDrch));
+                        bola.setLayoutX(300);
+                        bola.setLayoutY(200);
+                    }
+                    if (bola.getLayoutX() < 0){
+                        puntosIzq ++;
+                        puntuacionIzq.setText(String.valueOf(puntosIzq));
+                        bola.setLayoutX(300);
+                        bola.setLayoutY(200);
+                    }
+
                 }));
                 tl.setCycleCount(Animation.INDEFINITE);
                 tl.play();
